@@ -1,5 +1,7 @@
-function add(x: number, y: number): number {
+function add(x: number, y: string): string {
     return x + y;
 }
 
-type RetAdd = ReturnType<typeof add>;
+type FirstParameter<A> = A extends (...rest: infer X) => any ? X : never;
+
+type X = (FirstParameter<typeof add>)[0];
