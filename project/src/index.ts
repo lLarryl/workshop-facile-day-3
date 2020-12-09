@@ -1,7 +1,7 @@
-function add(x: number, y: string): string {
-    return x + y;
-}
+import { Option } from "./Option";
 
-type FirstParameter<A> = A extends (...rest: infer X) => any ? X : never;
+type AOfOption<A> = [A] extends [Option<infer X>]? X : never;
 
-type X = (FirstParameter<typeof add>)[0];
+type X = AOfOption<Option<number>>;
+type Y = AOfOption<Option<string>>;
+
