@@ -1,10 +1,5 @@
-type isString<A> = A extends string ? true : false;
+function add(x: number, y: number): number {
+    return x + y;
+}
 
-type A = isString<"hello">;
-type B = isString<number>
-
-type C = "hello" extends string ? true : false;
-
-type D<A> = A extends string ? {foo: A}: never;
-
-type E = D<number>;
+type RetAdd = ReturnType<typeof add>;
